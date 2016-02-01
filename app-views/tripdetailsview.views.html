@@ -1,0 +1,93 @@
+ <div id="wrapper">
+ 	<div ng-include="'app-views/header.views.html'"></div>
+ 	<div ng-include="'app-views/leftside.views.html'"></div>
+ 	<div id="page-wrapper">
+		<div id="page-inner">
+		    <div class="row">
+		        <div class="col-md-12">
+		         	<h2>Listing view</h2>
+		         	<div class="col-md-12">
+		         		<div class="table-responsive">
+		         			<table class="table ctShowTripViewsBasedId">
+								<thead>
+									<tr>
+										<th>Title</th>
+										<td>
+											{{ctAdmin.tripTitle}}
+										</td>
+									</tr>
+									<tr>
+										<th>From Date</th>
+										<td>
+											{{ctAdmin.fromdate}}
+										</td>
+									</tr>
+									<tr>
+										<th>To Date</th>
+										<td>
+											{{ctAdmin.todate}}
+										</td>
+									</tr>	
+									<tr>
+										<th>Route</th>
+										<td>
+											{{ctAdmin.route}}
+										</td>
+									</tr>
+									<tr>
+										<th>Guidelines</th>
+										<td>
+											{{ctAdmin.guidelines}}
+										</td>
+									</tr>
+									<tr>
+										<th>Description</th>
+										<td>
+											{{ctAdmin.description}}
+										</td>
+									</tr>	
+									</tr>
+								</thead>
+							</table>	
+						</div>
+					</div>
+					<h2>Itenary Details</h2>
+					<div class="col-md-12">
+		         		<div class="table-responsive">
+		         			<table class="table ctShowTripViewsBasedId">
+								<thead>
+									<tr>
+										<th>Day</th>
+										<th>Description</th>
+									</tr>
+									<tbody>
+										<tr ng-repeat="x in ctAdmin.daywisedescription track by $index">
+											<td>
+												{{$index + 1}}
+											</td>
+											<td>
+												{{x}}
+											</td>
+                                        </tr>
+                                  </tbody>
+								</thead>
+							</table>	
+						</div>
+					</div>
+					<h2>Uploaded Images </h2>
+					<div class="col-md-12">
+						<div class="col-md-3" ng-repeat="x in ctAdmin.tripimages track by $index">
+							<img width="100%" height="auto" 
+									src="http://www.fvdes.com/sites/default/files/images/icons/fieldtripbus.gif" 
+									class="img-thumbnail" alt="{{x}}">
+						</div>
+					</div>	
+			    </div>
+		    </div>
+		     <!-- /. ROW  -->
+		     <hr />
+		</div>
+		 <!-- /. PAGE INNER  -->
+	</div>
+	<!-- /. PAGE WRAPPER  -->
+ </div>
