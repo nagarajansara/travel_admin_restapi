@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <title>Travel Admin Panel</title>
+		<!-- BOOTSTRAP STYLES-->
+	    <link href="/traveladmin/app-content/theme/assets/css/bootstrap.css" rel="stylesheet" />
+	     <!-- FONTAWESOME STYLES-->
+	    <link href="/traveladmin/app-content/theme/assets/css/font-awesome.css" rel="stylesheet" />
+	        <!-- CUSTOM STYLES-->
+	    <link href="/traveladmin/app-content/theme/assets/css/custom.css" rel="stylesheet" />
+	     <!-- GOOGLE FONTS-->
+	   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+       <link href="/traveladmin/app-content/assets/css/traveladmin.css" rel="stylesheet" />		
+	</head>
+	<body  ng-app="traveladminApp" style="font-family: verdana; font-size: 12px !important;">
+	   <div ng-view></div>
+	  	<script src="app-content/angular.js/angular.js"></script>
+		<script src="app-content/angular.js/angular-route.js"></script>
+		<script src="app-content/angular.js/angular-cookies.js"></script>
+		<script src="app-content/assets/plugin/pagination/paging.js"></script>
+		<script src="app.js"></script>
+		
+		<script src="app-controllers/login.controller.js"></script>
+		<script src="app-services/login.services.js"></script>
+		<script src="app-services/errormsg.services.js"></script>
+		<script src="app-services/dao.services.js"></script>
+		<script src="app-services/util.services.js"></script>
+		<script src="app-controllers/dashboard.controller.js"></script>
+		<script src="app-services/dashboard.services.js"></script>
+		<script src="app-controllers/tripdetails.controller.js"></script>
+		<script src="app-services/tripdetails.services.js"></script>
+		<script src="app-controllers/activity.controller.js"></script>
+		<script src="app-services/activity.services.js"></script>
+		<script src="app-controllers/tripdetailsview.controller.js"></script>
+		<script src="app-services/tripdetailsview.services.js"></script>
+		<script src="app-directive/datepicker.directives.js"></script>
+		<script src="app-content/assets/plugin/jquery.js/jquery.js"></script>
+	</body>
+</html>

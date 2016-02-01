@@ -1,0 +1,13 @@
+.taContainer
+{
+	font-size: 14px;
+	font-family: verdana;
+}
+.ctVendorListPagination ul
+{
+	float: right;
+}
+.ctShowTripViewsBasedId th
+{
+	border-bottom: 0px solid #ddd !important;	
+}
