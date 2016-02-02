@@ -20,7 +20,7 @@
 
 		$scope.tripStatusType = "active";
 		
-		ctAdmin.TRIP_DETAILS_VIEW = "/traveladmin/#/tripdetailsview";
+		ctAdmin.TRIP_DETAILS_VIEW = "/admin/#/tripdetailsview";
 
 		
 
