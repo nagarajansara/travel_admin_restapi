@@ -161,12 +161,21 @@
 			}
 			else
 			{
-				return ctGet_HTTP_Protocol() + ""; 
+				return ctGet_HTTP_Protocol() + "www.saratravel.tk"; 
 			}
 		}
 		function ctIsServer()
 		{
-			return false;
+			if(location.host == "localhost"
+				|| location.host.indexOf("localhost") >= 0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			
 		}
 		function ctGet_HTTP_Protocol()
 		{
