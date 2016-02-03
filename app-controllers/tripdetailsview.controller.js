@@ -22,6 +22,12 @@
 		ctGetTripDetailsBasedId()
 		ctAdmin.uploaded_Trip_IMG_URL = UtilServices.
 												ctGetUploadedTripImageURL();
+
+		/************* MENUS ******************/
+	
+			ctAdmin.tripDetailsMenu = true;
+			
+		/************* MENUS ******************/
 		
 		function ctGetTripDetailsBasedId()
 		{
