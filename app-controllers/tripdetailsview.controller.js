@@ -20,6 +20,8 @@
 		$scope.tripStatusType = "active";
 
 		ctGetTripDetailsBasedId()
+		ctAdmin.uploaded_Trip_IMG_URL = UtilServices.
+												ctGetUploadedTripImageURL();
 		
 		function ctGetTripDetailsBasedId()
 		{

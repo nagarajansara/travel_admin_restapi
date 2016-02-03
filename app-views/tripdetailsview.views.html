@@ -78,8 +78,9 @@
 					<div class="col-md-12">
 						<div class="col-md-3" ng-repeat="x in ctAdmin.tripimages track by $index">
 							<img width="100%" height="auto" 
-									src="http://www.fvdes.com/sites/default/files/images/icons/fieldtripbus.gif" 
+									src="{{ctAdmin.uploaded_Trip_IMG_URL}}{{x}}" 
 									class="img-thumbnail" alt="{{x}}">
+									
 						</div>
 					</div>	
 			    </div>
