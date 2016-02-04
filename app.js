@@ -26,7 +26,12 @@ var sampleApp = angular.module('traveladminApp', ['ngRoute', 'ngCookies', 'bw.pa
 				templateUrl: 'app-views/tripdetailsview.views.html',
 	            controller: 'TripdetailsviewController',
 	            controllerAs: 'ctAdmin'
-			})	
+			})
+		.when('/userdetailsview/:email', {
+				templateUrl: 'app-views/userdetails.views.html',
+	            controller: 'UserDetailsController',
+	            controllerAs: 'ctAdmin'
+			})		
 	     .otherwise({
 	        redirectTo: '/login'
 	      });

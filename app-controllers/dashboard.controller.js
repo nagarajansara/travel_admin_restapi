@@ -22,6 +22,7 @@
 		
 		$scope.currentDefaultUserType = "all";
 		
+		ctAdmin.USER_DETAILS_VIEW = "/admin/#/userdetailsview";
 
 
 		ctDashboardInit();

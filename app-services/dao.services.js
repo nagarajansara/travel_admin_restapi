@@ -30,6 +30,7 @@
 		service.ctGetTripSearchKeyPagination = ctGetTripSearchKeyPagination;
 		service.ctGetActivitySearch = ctGetActivitySearch;
 		service.ctGetTripDetailsBasedId = ctGetTripDetailsBasedId;
+		service.ctGetUserDetailsBasedEmail = ctGetUserDetailsBasedEmail;
 		
 		
 		return service;
@@ -144,6 +145,11 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/getTripDetailsBasedId";
+		}
+		function ctGetUserDetailsBasedEmail_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/getUserDetailsBasedEmail";
 		}
 			
 		/**************************** END *************************/
@@ -333,6 +339,14 @@
 		{
 			ctCommonAjaxCall(ctGetTripDetailsBasedId_URL() + "/" + 
 								tripId +
+								"/" +
+								authToken,
+								cbk);	
+		}
+		function ctGetUserDetailsBasedEmail(authToken, userEmail, cbk)
+		{
+			ctCommonAjaxCall(ctGetUserDetailsBasedEmail_URL() + "/" + 
+								userEmail +
 								"/" +
 								authToken,
 								cbk);	

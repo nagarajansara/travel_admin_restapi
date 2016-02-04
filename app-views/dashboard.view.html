@@ -74,8 +74,8 @@
 									    <td ng-if="$even" class="danger">{{ x.firstname }}</td>
 									    <td ng-if="$odd" class="success">{{ x.lastname }}</td>
 									    <td ng-if="$even" class="danger">{{ x.lastname }}</td>
-									    <td ng-if="$odd" class="success">{{ x.email }}</td>
-									    <td ng-if="$even" class="danger">{{ x.email }}</td>
+									    <td ng-if="$odd" class="success"><a href="{{ctAdmin.USER_DETAILS_VIEW}}/{{x.email}}">{{ x.email }}</a></td>
+									    <td ng-if="$even" class="danger"><a href="{{ctAdmin.USER_DETAILS_VIEW}}/{{x.email}}">{{ x.email }}</a></td>
 									    <td ng-if="$odd" class="success">{{ x.isapproved }}</td>
 									    <td ng-if="$even" class="danger">{{ x.isapproved }}</td>
 									    <td ng-if="$even" class="danger">
