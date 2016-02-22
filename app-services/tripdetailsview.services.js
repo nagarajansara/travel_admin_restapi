@@ -10,6 +10,9 @@
 	{
 		var service = {};
 		service.ctGetTripDetailsBasedId = ctGetTripDetailsBasedId;
+		service.ctAddMetaKeywords = ctAddMetaKeywords;
+		service.ctUpdateMetaKeywords = ctUpdateMetaKeywords;
+		
 
 		return service;
 
@@ -20,6 +23,22 @@
 											tripId, function(data){
 												cbk(data);
 				});
+		}
+		function ctAddMetaKeywords(keywords, tripId, cbk)
+		{
+			DAOServices.
+				ctAddMetaKeywords(UtilServices.ctGetCookieName('authToken'),
+									keywords, tripId, function(data){
+											cbk(data);
+									});
+		}
+		function ctUpdateMetaKeywords(keywords, tripId, cbk)
+		{
+			DAOServices.
+				ctUpdateMetaKeywords(UtilServices.ctGetCookieName('authToken'),
+									keywords, tripId, function(data){
+											cbk(data);
+									});
 		}
 	}
 })();	

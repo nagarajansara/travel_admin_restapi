@@ -51,6 +51,19 @@
 							ctAdmin.guidelines = responseData.guidelines;
 							ctAdmin.daywisedescription = responseData.daywisedescription;
 							ctAdmin.daywisedescription = ctAdmin.daywisedescription.split("@@");
+							ctAdmin.tripId = responseData.id;
+							ctAdmin.isKeywords = responseData.keywords;
+							if(ctAdmin.isKeywords == "EMPTY_TXT")
+							{
+								ctAdmin.isKeywordAddBtn = true;
+								ctAdmin.isKeywordsUpdateBtn = false;
+							}
+							else
+							{
+								ctAdmin.metaKeywords = responseData.keywords;
+								ctAdmin.isKeywordsUpdateBtn = true;
+								ctAdmin.isKeywordAddBtn = false;
+							}
 							
 						}
 						else
@@ -66,6 +79,63 @@
 						}
 					}
 				});
+		}
+		$scope.ctAddMetaKeywords = function()
+		{
+			var keywords = ctAdmin.metaKeywords,
+				tripId = ctAdmin.tripId;
+			if(keywords && keywords.length > 0
+				&& tripId)
+			{
+				ctAdmin.loader = true;
+				TripDetailsViewService.
+					ctAddMetaKeywords(keywords, tripId, function(data){
+						ctAdmin.loader = false;			
+						if(data && data.responseStatus == 200)
+						{
+							alert("Inserted successfully");
+						}
+						else
+						{
+							if(data.responseStatus == 3)
+							{
+								$location.path('/login'); 	
+							}
+						}
+					});
+			}
+			else
+			{
+				alert("Please enter your keywords");
+			}
+		}
+		$scope.ctUpdateMetaKeywords = function()
+		{
+			var keywords = ctAdmin.metaKeywords,
+				tripId = ctAdmin.tripId;
+			if(keywords && tripId)
+			{
+				ctAdmin.loader = true;
+				TripDetailsViewService.
+					ctUpdateMetaKeywords(keywords, tripId, function(data){
+						ctAdmin.loader = false;			
+						if(data && data.responseStatus == 200)
+						{
+							alert("Updateed successfully");
+						}
+						else
+						{
+							if(data.responseStatus == 3)
+							{
+								$location.path('/login'); 	
+							}
+						}
+					});
+			}
+			else
+			{
+				alert("Please enter your keywords");
+			}
 		}
     }	
 

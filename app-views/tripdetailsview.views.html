@@ -46,13 +46,15 @@
 											{{ctAdmin.description}}
 										</td>
 									</tr>	
+									<tr>
+										<input type="hidden" ng-model="ctAdmin.tripId">
 									</tr>
 								</thead>
 							</table>	
 						</div>
 					</div>
-					<h2>Itenary Details</h2>
 					<div class="col-md-12">
+						<h2>Itenary Details</h2>
 		         		<div class="table-responsive">
 		         			<table class="table ctShowTripViewsBasedId">
 								<thead>
@@ -74,15 +76,33 @@
 							</table>	
 						</div>
 					</div>
-					<h2>Uploaded Images </h2>
 					<div class="col-md-12">
+						<h2>Uploaded Images </h2>
 						<div class="col-md-3" ng-repeat="x in ctAdmin.tripimages track by $index">
 							<img width="100%" height="auto" 
 									src="{{ctAdmin.uploaded_Trip_IMG_URL}}{{x}}" 
 									class="img-thumbnail" alt="{{x}}">
 									
 						</div>
-					</div>	
+					</div>
+					<div class="col-md-12" style="margin-top: 20px;">					
+						<h2>Meta Tag</h2>
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="email">Keywords:</label>
+								<div class="col-sm-4">
+									<input ng-model="ctAdmin.metaKeywords" type="text" class="form-control" id="ctKeywords" placeholder="Enter email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button ng-show="ctAdmin.isKeywordAddBtn" ng-click="ctAddMetaKeywords()" class="btn btn-default">Submit</button>
+									<button ng-show="ctAdmin.isKeywordsUpdateBtn" ng-click="ctUpdateMetaKeywords()" class="btn btn-default">Update</button>
+								</div>
+							</div>
+							<img ng-if="ctAdmin.loader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  />
+						</form>
+					</div>
 			    </div>
 		    </div>
 		     <!-- /. ROW  -->

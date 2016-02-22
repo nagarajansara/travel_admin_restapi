@@ -31,6 +31,8 @@
 		service.ctGetActivitySearch = ctGetActivitySearch;
 		service.ctGetTripDetailsBasedId = ctGetTripDetailsBasedId;
 		service.ctGetUserDetailsBasedEmail = ctGetUserDetailsBasedEmail;
+		service.ctAddMetaKeywords = ctAddMetaKeywords;
+		service.ctUpdateMetaKeywords = ctUpdateMetaKeywords;
 		
 		
 		return service;
@@ -61,11 +63,6 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/updateApprovedStatus";
-		}
-		function ctGetUserBasedApprovedType_URL()
-		{
-			return ctgetServerName() + "/" + ctgetAppName() + 
-							"/admin/getUserBasedApprovedType";
 		}
 		function ctGetUserBasedApprovedType_URL()
 		{
@@ -150,6 +147,16 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/getUserDetailsBasedEmail";
+		}
+		function ctAddMetaKeywords_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/addMetaKeywords";
+		}
+		function ctUpdateMetaKeywords_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/updateMetaKeywords";
 		}
 			
 		/**************************** END *************************/
@@ -351,8 +358,26 @@
 								authToken,
 								cbk);	
 		}
-
-
+		function ctAddMetaKeywords(authToken, keywords, tripId, cbk)
+		{
+			ctCommonAjaxCall(ctAddMetaKeywords_URL() + "/" + 
+								keywords +
+								"/" +
+								tripId +
+								"/" +
+								authToken,
+								cbk);		
+		}
+		function ctUpdateMetaKeywords(authToken, keywords, tripId, cbk)
+		{
+			ctCommonAjaxCall(ctUpdateMetaKeywords_URL() + "/" + 
+								keywords +
+								"/" +
+								tripId +
+								"/" +
+								authToken,
+								cbk);		
+		}
 
 
 		
