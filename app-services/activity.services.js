@@ -14,6 +14,7 @@
 		service.ctGetActivityDetailsPagination = ctGetActivityDetailsPagination;
 		service.ctGetUpdateActivityStatus = ctGetUpdateActivityStatus;
 		service.ctGetActivitySearch = ctGetActivitySearch;
+		service.ctUploadBulkActivity = ctUploadBulkActivity;
 
 		return service;
 
@@ -63,6 +64,18 @@
 				ctGetActivitySearch(UtilServices.ctGetCookieName('authToken'), 
 										status, searchKey, function(data){
 							cbk(data);
+				});
+		}
+		function ctUploadBulkActivity(fileObj, cbk)
+		{
+
+			var formData = new FormData();
+			formData.append('file', fileObj);
+			formData.append('authToken', UtilServices.ctGetCookieName('authToken'));
+			
+			DAOServices.
+				ctUploadBulkActivity(formData, function(data){
+					cbk(data)
 				});
 		}
 		

@@ -22,6 +22,11 @@ var sampleApp = angular.module('traveladminApp', ['ngRoute', 'ngCookies', 'bw.pa
 	            controller: 'ActivityController',
 	            controllerAs: 'ctAdmin'
 			})
+		.when('/subactivity', {
+				templateUrl: 'app-views/subactivity.views.html',
+	            controller: 'SubActivityController',
+	            controllerAs: 'ctAdmin'
+			})	
 		.when('/tripdetailsview/:tripId', {
 				templateUrl: 'app-views/tripdetailsview.views.html',
 	            controller: 'TripdetailsviewController',

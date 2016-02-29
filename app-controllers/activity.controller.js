@@ -20,7 +20,7 @@
 
 		ctAdmin.activityMenu = true;
 		$scope.activityStatusType = 'active';
-
+	
 		ctGetActivitys();
 
 		$scope.ctAddActivity = function()
@@ -39,6 +39,7 @@
 							}
 							else
 							{
+								ctAdmin.addLoader = false;
 								if(data.responseStatus == 3)
 								{
 									$location.path('/login'); 	
@@ -72,6 +73,26 @@
 			$scope.activitySearchKey = $scope.ctActivitySearchTxt;
 			ctGetActivitySearch();
 		}
+		$scope.ctUploadBulkActivity = function()
+		{
+			var file = $scope.myFile;
+			ctAdmin.addBulkLoader = true;
+			ActivityService.
+				ctUploadBulkActivity(file, function(data){
+					if(data && data.responseStatus == 200)
+					{
+						ctAdmin.addBulkLoader = false;
+					}
+					else
+					{
+						ctAdmin.addBulkLoader = false;
+						if(data.responseStatus == 3)
+						{
+							$location.path('/login'); 	
+						}
+					}
+				});
+		}	
 		function ctGetActivitys()
 		{
 			var status = $scope.activityStatusType;
@@ -147,7 +168,7 @@
 				console.log("No searchkey");
 			}
 		}
-
+		
     }	
 
 })();

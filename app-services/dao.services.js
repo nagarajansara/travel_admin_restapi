@@ -33,6 +33,9 @@
 		service.ctGetUserDetailsBasedEmail = ctGetUserDetailsBasedEmail;
 		service.ctAddMetaKeywords = ctAddMetaKeywords;
 		service.ctUpdateMetaKeywords = ctUpdateMetaKeywords;
+		service.ctAddSubActivity = ctAddSubActivity;
+		service.ctUploadBulkActivity = ctUploadBulkActivity;
+		service.ctUploadBulkSubActivity = ctUploadBulkSubActivity;
 		
 		
 		return service;
@@ -157,6 +160,21 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/updateMetaKeywords";
+		}
+		function ctAddSubActivity_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/addSubActivity";
+		}
+		function ctUploadBulkActivity_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/addBulkActivity";
+		}
+		function ctUploadBulkSubActivity_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/addBulkSubActivity";
 		}
 			
 		/**************************** END *************************/
@@ -378,6 +396,26 @@
 								authToken,
 								cbk);		
 		}
+		function ctAddSubActivity(authToken, subActivityName, cbk)
+		{
+			ctCommonAjaxCall(ctAddSubActivity_URL() + "/" + 
+								subActivityName +
+								"/" +
+								authToken,
+								cbk);		
+		}
+		function ctUploadBulkActivity(formData, cbk)
+		{
+			ctCommonFomDataAjaxCall(ctUploadBulkActivity_URL(),
+									formData,
+								cbk);		
+		}
+		function ctUploadBulkSubActivity(formData, cbk)
+		{
+			ctCommonFomDataAjaxCall(ctUploadBulkSubActivity_URL(),
+									formData,
+								cbk);		
+		}
 
 
 		
@@ -396,6 +434,25 @@
 					$rootScope.loader = false;	
 				}
 			}, handleError )
+			
+		}
+		function ctCommonFomDataAjaxCall(URL, formData, cbk)
+		{
+			 $http.post(URL, formData, {
+                  transformRequest: angular.identity,
+				  withCredentials : false,	
+                  headers: {'Content-Type': undefined}
+               })
+            
+               .success(function(data){
+               		if(cbk)
+					{
+						data = JSON.parse(JSON.stringify(data))
+						cbk(data);		
+					}	
+               })
+               .error(function(){
+               });
 			
 		}
 		function handleSuccess(data)
