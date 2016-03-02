@@ -36,6 +36,9 @@
 		service.ctAddSubActivity = ctAddSubActivity;
 		service.ctUploadBulkActivity = ctUploadBulkActivity;
 		service.ctUploadBulkSubActivity = ctUploadBulkSubActivity;
+		service.ctGetSubActivitys = ctGetSubActivitys;
+		service.ctUpdateSubActivityStatus = ctUpdateSubActivityStatus;
+		service.ctGetSubActivityDetailsPagination = ctGetSubActivityDetailsPagination;
 		
 		
 		return service;
@@ -175,6 +178,26 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/addBulkSubActivity";
+		}
+		function ctGetSubActivitys_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/getSubActivitys";
+		}
+		function ctGetSubActivitys_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/getSubActivitys";
+		}
+		function ctUpdateSubActivityStatus_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/updateSubActivityStatus";
+		}
+		function ctGetSubActivityDetailsPagination_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/getSubActivitysPagination";
 		}
 			
 		/**************************** END *************************/
@@ -415,6 +438,39 @@
 			ctCommonFomDataAjaxCall(ctUploadBulkSubActivity_URL(),
 									formData,
 								cbk);		
+		}
+		function ctGetSubActivitys(authToken, status, cbk)
+		{
+			ctCommonAjaxCall(ctGetSubActivitys_URL() 
+								+ "/" +
+								status +
+								"/" +
+								authToken,
+								cbk);
+									
+									
+		}
+		function ctUpdateSubActivityStatus(authToken, subActivityId, status, cbk)
+		{
+			ctCommonAjaxCall(ctUpdateSubActivityStatus_URL() +
+								"/" +
+								subActivityId +
+								"/" +
+								status +
+								"/" +
+								authToken, cbk)
+								
+		}
+		function ctGetSubActivityDetailsPagination(authToken, activityStatus, startIndx, cbk)
+		{
+			ctCommonAjaxCall(ctGetSubActivityDetailsPagination_URL() +
+								"/" +
+								activityStatus +
+								"/" +
+								startIndx +
+								"/" +
+								authToken, cbk)
+								
 		}
 
 
