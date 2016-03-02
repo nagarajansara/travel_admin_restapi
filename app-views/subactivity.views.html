@@ -1,0 +1,159 @@
+ <div id="wrapper">
+ 	<div ng-include="'app-views/header.views.html'"></div>
+ 	<div ng-include="'app-views/leftside.views.html'"></div>
+ 	<div id="page-wrapper">
+		<div id="page-inner">
+		    <div class="row">
+		        <div class="col-md-12">
+		         	<h2>Activity</h2>   
+		            <!--<h5>Welcome Jhon Deo , Love to see you back. </h5>-->
+		        </div>
+		        <hr>
+		        <div class="row">
+		        	<div class="col-md-12">
+		        		<div class="panel panel-default">
+		        			<div class="panel-heading">
+                            	ADD SubActivity
+                        	</div>
+                        	<div class="panel-body">
+                        		<div class="row">
+                        			<img ng-if="ctAdmin.addLoader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  />
+                        			<div class="col-md-6">
+                        				<form class="form-horizontal" role="form">
+											<div class="form-group">
+												<label class="control-label col-sm-6">
+													ADD SubActivity
+												</label>
+												<div class="col-sm-6">
+													<input type="text" ng-model="ctAdmin.subActivityName" class="form-control" 
+														placeholder="SubActivity Name">
+												</div>
+											</div>
+											<button ng-click="ctAddSubActivity()" class="btn btn-primary">ADD</button>
+											<span ng-if="ctAdmin.showSubActivity" style="">{{ctAdmin.subActivityResponse}}</span>
+                        				</form>
+                        			</div>
+                        			<div class="col-md-6">
+                        				<form class="form-horizontal" role="form">
+											<div class="form-group">
+												<label class="control-label col-sm-6" for="email">
+													Bulk Upload (.csv file)
+												</label>
+												<div class="col-sm-6">
+													 <input type="file" file-model="myFile"/>
+												</div>
+											</div>
+											<div class="control-label col-sm-6">
+												<button class="btn btn-primary" ng-click = "ctUploadBulkSubActivity()">Upload</button>
+												<img ng-if="ctAdmin.addBulkLoader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  />
+											</div>
+											
+                        				</form>
+                        			</div>
+                        		</div>
+                        		</br>
+                        		<div class="row">
+                        			 <div class="col-md-12">
+                        			 <h2>SubActivity List</h2
+                        			 	<form role="form">
+							     	 		<div class="form-group">
+							     	 			<div class="radio">
+					                                <label>
+					                                    <input type="radio" ng-checked="true" ng-model="ctSubActivityStatus" value="active" id="optionsRadios1" ng-click="ctGetSubActivityStatus()" name="activityStatus">Active
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                                <label>
+					                                    <input type="radio" ng-model="ctSubActivityStatus" value="deactive" id="optionsRadios1" 
+					                                    				ng-click="ctGetSubActivityStatus()" name="activityStatus">Deactive
+					                                </label>
+					                            </div>
+					                       </div>
+					                      <input type="hidden"  ng-value="{{activityStatusType}}">
+							     	 	</form>
+                        			 	<div class=" panel-default">
+											<div class="panel-heading navbar">
+												<div class="col-sm-4 col-md-4 pull-right">
+										            <form class="navbar-form" role="search">
+										                <div class="input-group">
+										                   <!--<input type="text" ng-model="ctActivitySearchTxt"  class="form-control" placeholder="Search" name="q">
+										                    <div class="input-group-btn">
+										                        <button class="btn btn-default" ng-click="ctActivitySearch()" type="button"><i class="glyphicon glyphicon-search"></i></button>
+										                    </div>-->
+										                </div>
+										    	    </form>
+										    	    <input type="hidden"  ng-value="{{activitySearchKey}}">
+										        </div>      
+											</div>
+                        			 	</div>
+                        			 	 <div class="panel-body">
+                        			 	 	<div class="table-responsive">
+                        			 	 		<img ng-if="loader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  />
+                        			 	 		<table class="table table-bordered table-striped table-bordered table-hover">
+													<thead>
+														<tr>
+														<th>S.No</th>
+														<th>SubActivity Name</th>
+														<th>Status</th>
+														<th>Operation</th>
+														</tr>
+													</thead>
+													<tr>
+														<td ng-if="ctAdmin.subActivityDetails.length == 0">
+															<span style="color: red; font-family: verdana;">
+																No data found
+															</span>
+														</td>
+													</tr>
+													<tr ng-repeat="x in ctAdmin.subActivityDetails">
+													    <td ng-if="$odd" class="success">{{ $index + 1 }}</td>
+													    <td ng-if="$even" class="danger">{{ $index + 1 }}</td>
+													    <td ng-if="$odd" class="success">{{ x.name }}</td>
+													    <td ng-if="$even" class="danger">{{ x.name }}</td>
+													    <td ng-if="$odd" class="success">{{ x.status }}</td>
+													    <td ng-if="$even" class="danger">{{ x.status }}</td>
+													    <td ng-if="$even" class="danger">
+													    	 <select ng-model="selectedStatus" ng-change="ctUpdateSubActivityStatus(selectedStatus)">
+																<option value="">-- Select --</option>	
+															    <option value="{{x.id}} && active">Active</option>
+															    <option value="{{x.id}} && deactive">Deactive</option>
+															</select>
+													    </td>
+													    <td ng-if="$odd" class="success">
+													    	<select ng-model="selectedStatus" ng-change="ctUpdateSubActivityStatus(selectedStatus)">
+																<option value="">-- Select --</option>	
+															    <option value="{{x.id}} && active">Active</option>
+															    <option value="{{x.id}} && deactive">Deactive</option>
+															</select>
+													    </td>
+												  </tr>
+                        			 	 		</table>
+                        			 	 	</div>
+                        			 	 </div>
+                        			 </div>
+                        		</div>
+                        	</div>
+		        		</div>
+		        	</div>
+					<input type="hidden" ng-model="total" />
+					<input type="hidden" ng-model="currentPage" />
+					<div ng-if="ctAdmin.subActivityNumEntries" class="col-md-12 ctVendorListPagination">
+						<paging
+							class="small"
+							page="currentPage" 
+							page-size="5" 
+							total="total"
+							show-prev-next="true"
+							show-first-last="true"
+							paging-action="DoCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+						</paging>  
+					</div>
+		        </div>
+		    </div>
+		     <!-- /. ROW  -->
+		     <hr />
+		</div>
+		 <!-- /. PAGE INNER  -->
+	</div>
+	<!-- /. PAGE WRAPPER  -->
+ </div>
