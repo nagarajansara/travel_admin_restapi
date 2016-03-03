@@ -137,6 +137,26 @@
 				alert("Please enter your keywords");
 			}
 		}
+		$scope.ctAddTopActivityList = function()
+		{
+			var tripId = $routeParams.tripId,
+				isTopActivityList = $scope.ctIsTopActivity;
+			
+			TripDetailsViewService.
+						ctAddTopActivityList(tripId, isTopActivityList, function(data){
+							if(data && data.responseStatus == 200)
+							{
+								console.log(data);
+							}
+							else
+							{
+								if(data.responseStatus == 3)
+								{
+									$location.path('/login'); 	
+								}
+							}
+				});
+		}
     }	
 
 })();

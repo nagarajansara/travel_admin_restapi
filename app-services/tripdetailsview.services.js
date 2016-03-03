@@ -12,6 +12,7 @@
 		service.ctGetTripDetailsBasedId = ctGetTripDetailsBasedId;
 		service.ctAddMetaKeywords = ctAddMetaKeywords;
 		service.ctUpdateMetaKeywords = ctUpdateMetaKeywords;
+		service.ctAddTopActivityList = ctAddTopActivityList;
 		
 
 		return service;
@@ -39,6 +40,17 @@
 									keywords, tripId, function(data){
 											cbk(data);
 									});
+		}
+		function ctAddTopActivityList(tripId, isTopActivityList, cbk)
+		{
+			DAOServices.
+				ctAddTopActivityList(UtilServices.ctGetCookieName('authToken'),
+										tripId,
+										isTopActivityList,
+										function(data){
+										cbk(data);
+				});
+										
 		}
 	}
 })();	

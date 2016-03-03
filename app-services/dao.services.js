@@ -39,6 +39,7 @@
 		service.ctGetSubActivitys = ctGetSubActivitys;
 		service.ctUpdateSubActivityStatus = ctUpdateSubActivityStatus;
 		service.ctGetSubActivityDetailsPagination = ctGetSubActivityDetailsPagination;
+		service.ctAddTopActivityList = ctAddTopActivityList;
 		
 		
 		return service;
@@ -198,6 +199,11 @@
 		{
 			return ctgetServerName() + "/" + ctgetAppName() + 
 							"/admin/getSubActivitysPagination";
+		}
+		function ctAddTopActivityList_URL()
+		{
+			return ctgetServerName() + "/" + ctgetAppName() + 
+							"/admin/addTopActivityList";
 		}
 			
 		/**************************** END *************************/
@@ -472,6 +478,18 @@
 								authToken, cbk)
 								
 		}
+		function ctAddTopActivityList(authToken, tripId, isTopActivityList, cbk)
+		{
+			ctCommonAjaxCall(ctAddTopActivityList_URL() + 
+									"/" +
+									tripId +
+									"/" +
+									isTopActivityList +
+									"/" +
+									authToken,
+									cbk);
+									
+ 		}
 
 
 		

@@ -27,6 +27,11 @@
                                     <input type="radio" ng-model="ctTripStatus" value="expiry" id="optionsRadios1" ng-click="ctGetTripStatus()" name="tripStatus">Expiry
                                 </label>
                             </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="ctTripStatus" value="topActivity" id="optionsRadios1" ng-click="ctGetTripStatus()" name="tripStatus">Top Activity
+                                </label>
+                            </div>
                       	</div>
                       	<input type="hidden"  ng-value="{{tripStatusType}}">
 		     	 	</form>
@@ -58,6 +63,7 @@
 											<th>To Date</th>
 											<th>Status</th>
 											<th>Operation</th>
+											<th>TopActivitys</th>
 										</tr>	
 									</thead>
 									<tr>
@@ -92,6 +98,20 @@
 												<option value="">-- Select --</option>	
 											    <option value="{{x.id}} && active">Active</option>
 											    <option value="{{x.id}} && deactive">Deactive</option>
+											</select>
+									    </td>
+									    <td ng-if="$odd" class="success">
+									    	<select ng-model="selectedStatus" ng-change="ctGetUpdateDetails(selectedStatus)">
+												<option value="">-- Select --</option>	
+											    <option value="{{x.id}} && true">true</option>
+											    <option value="{{x.id}} && false">false</option>
+											</select>
+									    </td>
+									     <td ng-if="$even" class="danger">
+									    	<select ng-model="selectedStatus" ng-change="ctGetUpdateDetails(selectedStatus)">
+												<option value="">-- Select --</option>	
+											    <option value="{{x.id}} && true">true</option>
+											    <option value="{{x.id}} && false">false</option>
 											</select>
 									    </td>
 									  </tr>
